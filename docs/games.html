@@ -64,6 +64,25 @@
     .games-list a:hover {
       color: #023e8a;
     }
+
+    .menu-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: #fff;
+      background-color: #6c757d;
+      border-radius: 12px;
+      transition: background-color 0.3s, transform 0.2s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      user-select: none;
+    }
+
+    .menu-btn:hover {
+      background-color: #495057;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
@@ -75,6 +94,11 @@
       <li><a href="games/true_false.html">🎯 Правда или Ложь</a></li>
       <li><a href="games/match_pairs.html">🔗 Соедини пары</a></li>
     </ul>
+
+    <!-- Добавляем кнопочку -->
+    <div style="text-align: center;">
+      <a href="../index.html" class="menu-btn">↩ Вернуться в меню</a>
+    </div>
   </main>
 
   <div w3-include-html="../footer.html"></div>
