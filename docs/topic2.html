@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Тема 2: Свойства и теоремы</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  <style>
+    main.content p { margin-bottom: 1rem; line-height: 1.8; }
+    .nav-buttons { margin-top: 2rem; }
+    .block-formula { background: #f0f8ff; padding: 12px; border-radius: 6px; margin: 1rem 0; font-size: 1.1rem; }
+    strong { color: #023e7d; }
+    ul { margin-left: 1.2rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <h1 class="site-title">Учебник по алгебраическим дробям</h1>
+      <nav class="main-nav" aria-label="Меню">
+        <a href="index.html">Главная</a>
+        <a href="theory.html" class="active">Теория</a>
+        <a href="practice.html">Практика</a>
+        <a href="tests.html">Тесты</a>
+        <a href="control.html">Контрольные</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="games.html">Игры</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content">
+    <h1>Тема 2: Свойства и теоремы алгебраических дробей</h1>
+
+    <p>Чтобы уверенно работать с алгебраическими дробями, важно знать и понимать несколько основных свойств и теорем, которые облегчают преобразования и вычисления.</p>
+
+    <h2>Свойства нуля и единицы</h2>
+    <p>Очень важно помнить простые, но мощные свойства, связанные с числами 0 и 1:</p>
+    <ul>
+      <li>\(\displaystyle\frac{0}{P} = 0\), если \(P \neq 0\). Это значит, что ноль в числителе делает всю дробь равной нулю, при условии, что знаменатель не равен нулю.</li>
+      <li>\(\displaystyle\frac{P}{P} = 1\), если \(P \neq 0\). Любое выражение, делённое само на себя, равно единице.</li>
+    </ul>
+
+    <h2>Правило сокращения дроби</h2>
+    <p>Если числитель и знаменатель имеют общий множитель \(a \neq 0\), дробь можно упростить, сократив на этот множитель:</p>
+    <div class="block-formula">\[
+      \frac{aP}{aQ} = \frac{P}{Q}
+    \]</div>
+    <p>Это очень полезно для упрощения выражений и для более лёгкого сравнения дробей.</p>
+
+    <h2>Теорема о пропорции</h2>
+    <p>Если две дроби равны:</p>
+    <div class="block-formula">\[
+      \frac{P}{Q} = \frac{R}{S},
+    \]</div>
+    <p>то произведения попарно равны:</p>
+    <div class="block-formula">\[
+      P \cdot S = Q \cdot R.
+    \]</div>
+    <p>Эта теорема — главный инструмент при решении уравнений, содержащих дроби. Она позволяет избавляться от знаменателей и работать с уравнениями как с целыми выражениями.</p>
+
+    <h2>Теорема о приведении дроби к общему виду</h2>
+    <p>Домножение или деление числителя и знаменателя на одно и то же выражение \(k \neq 0\) не изменяет значение дроби:</p>
+    <div class="block-formula">\[
+      \frac{P}{Q} = \frac{kP}{kQ}.
+    \]</div>
+    <p>Это свойство позволяет приводить дроби к общему знаменателю, что особенно важно при сложении и вычитании дробей.</p>
+
+    <h2>Дополнительные советы для работы с дробями</h2>
+    <ul>
+      <li>Перед упрощением дроби всегда проверяйте, не равен ли знаменатель нулю.</li>
+      <li>При решении задач используйте свойства дробей, чтобы избежать ошибок с областью допустимых значений.</li>
+      <li>Для сложных выражений старайтесь сначала привести дроби к общему знаменателю.</li>
+    </ul>
+
+    <div class="nav-buttons">
+      <a class="btn" href="topic1.html">← Назад</a>
+      <a class="btn" href="topic3.html">Далее →</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container text-center">© 2025 Учебник по алгебраическим дробям</div>
+  </footer>
+</body>
+</html>

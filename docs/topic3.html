@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Тема 3: Сложение и вычитание дробей — Учебник по алгебраическим дробям</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  <style>
+    main.content p { margin-bottom: 1rem; line-height: 1.8; }
+    .nav-buttons { margin-top: 2rem; }
+    .block-formula, .block-example {
+      background: #f0f8ff;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 1rem 0;
+      font-size: 1.1rem;
+      font-family: "Georgia", serif;
+    }
+    strong {
+      color: #023e7d;
+    }
+    ul {
+      margin-left: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    nav.main-nav a.active {
+      font-weight: 600;
+      color: #0077b6;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <h1 class="site-title">Учебник по алгебраическим дробям</h1>
+      <nav class="main-nav" aria-label="Меню">
+        <a href="index.html">Главная</a>
+        <a href="theory.html" class="active">Теория</a>
+        <a href="practice.html">Практика</a>
+        <a href="tests.html">Тесты</a>
+        <a href="control.html">Контрольные</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="games.html">Игры</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content">
+    <h1>Тема 3: Сложение и вычитание дробей</h1>
+    <p>Чтобы сложить или вычесть две дроби, необходимо привести их к <strong>общему знаменателю</strong>. Это позволяет выполнять операции с дробями, как если бы они были целыми числами.</p>
+
+    <h2>Общий знаменатель</h2>
+    <p>Чаще всего общий знаменатель берётся как произведение знаменателей исходных дробей, но иногда удобнее использовать <em>наименьшее общее кратное (НОК)</em>, чтобы получить более простой результат.</p>
+
+    <div class="block-formula">
+      \[
+      \frac{P}{A} \pm \frac{Q}{B} = \frac{P \cdot B \pm Q \cdot A}{A \cdot B}
+      \]
+    </div>
+
+    <p>Здесь числители домножаются на знаменатель другой дроби, а знаменатели умножаются друг на друга.</p>
+
+    <h2>Пример сложения дробей</h2>
+    <p>Рассмотрим сложение дробей \(\dfrac{1}{x-2}\) и \(\dfrac{3}{x+2}\):</p>
+    <div class="block-example">
+      \[
+      \frac{1}{x-2} + \frac{3}{x+2} = \frac{1 \cdot (x+2) + 3 \cdot (x-2)}{(x-2)(x+2)} = \frac{x + 2 + 3x - 6}{x^2 - 4} = \frac{4x - 4}{x^2 - 4} = \frac{4(x - 1)}{x^2 - 4}
+      \]
+    </div>
+
+    <h2>Пример вычитания дробей</h2>
+    <p>Теперь рассмотрим вычитание \(\dfrac{5}{x+1} - \dfrac{2}{x-1}\):</p>
+    <div class="block-example">
+      \[
+      \frac{5}{x+1} - \frac{2}{x-1} = \frac{5 \cdot (x-1) - 2 \cdot (x+1)}{(x+1)(x-1)} = \frac{5x - 5 - 2x - 2}{x^2 - 1} = \frac{3x - 7}{x^2 - 1}
+      \]
+    </div>
+
+    <h2>Что делать после сложения и вычитания?</h2>
+    <p>После операции рекомендуется <strong>упростить полученную дробь</strong>, если это возможно:</p>
+    <ul>
+      <li>Раскрыть скобки и привести подобные слагаемые в числителе;</li>
+      <li>При необходимости вынести общий множитель за скобки;</li>
+      <li>Сократить дробь, если числитель и знаменатель имеют общий множитель.</li>
+    </ul>
+
+    <h2>Важные замечания</h2>
+    <ul>
+      <li>Запомни, что знаменатель дроби не может быть равен нулю — это запрещено в алгебре.</li>
+      <li>При сложении и вычитании дробей с переменными выражениями всегда проверяй область допустимых значений.</li>
+      <li>Если дроби уже имеют одинаковый знаменатель, то операция значительно упрощается:</li>
+    </ul>
+    <div class="block-formula">
+      \[
+      \frac{P}{Q} \pm \frac{R}{Q} = \frac{P \pm R}{Q}.
+      \]
+    </div>
+
+    <div class="nav-buttons">
+      <a class="btn" href="topic2.html">← Назад</a>
+      <a class="btn" href="topic4.html">Далее →</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container text-center">© 2025 Учебник по алгебраическим дробям</div>
+  </footer>
+</body>
+</html>

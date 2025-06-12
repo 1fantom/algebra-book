@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Тесты — Учебник по алгебраическим дробям</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Подключаем внешний CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Подключаем MathJax для красивого вывода формул -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+  <style>
+    /* Дополнительные локальные стили — их можно менять */
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      /* фон и цвет лучше брать из styles.css, если он там есть */
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    main.container {
+      max-width: 720px;
+      margin: 2.5rem auto 3rem;
+      background: white;
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 115, 182, 0.15);
+      transition: box-shadow 0.3s ease;
+    }
+    main.container:hover {
+      box-shadow: 0 12px 36px rgba(0, 115, 182, 0.25);
+    }
+
+    h2 {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #023e7d;
+      letter-spacing: 0.02em;
+    }
+
+    p {
+      font-size: 1.125rem;
+      margin-bottom: 1.8rem;
+      color: #333;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #0077b6;
+      display: inline-block;
+      margin-bottom: 0.6rem;
+    }
+
+    select#level-select {
+      display: block;
+      width: 100%;
+      max-width: 200px;
+      padding: 0.5rem 0.75rem;
+      font-size: 1rem;
+      border: 2px solid #90caf9;
+      border-radius: 8px;
+      background-color: #e3f2fd;
+      color: #023e7d;
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+    }
+    select#level-select:focus {
+      outline: none;
+      border-color: #0077b6;
+      box-shadow: 0 0 8px #90caf9;
+    }
+
+    ol#problems-list {
+      margin-top: 1.5rem;
+      padding-left: 1.3rem;
+      font-size: 1.1rem;
+      color: #222;
+    }
+    ol#problems-list li {
+      margin-bottom: 1.2rem;
+      padding: 0.6rem 0.8rem;
+      background: #e6f0ff;
+      border-radius: 8px;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+      transition: background-color 0.3s ease;
+    }
+    ol#problems-list li:hover {
+      background-color: #d0e4ff;
+    }
+
+    button#check-btn {
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 280px;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(0, 119, 182, 0.3);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    button#check-btn:hover,
+    button#check-btn:focus {
+      background-color: #005f87;
+      box-shadow: 0 8px 18px rgba(0, 95, 135, 0.5);
+      outline: none;
+    }
+
+    #result {
+      margin-top: 1.5rem;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #008000;
+      min-height: 2rem;
+      text-align: center;
+      user-select: none;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <h1 class="site-title">Учебник по алгебраическим дробям</h1>
+      <nav class="main-nav" aria-label="Меню">
+        <a href="index.html">Главная</a>
+        <a href="theory.html">Теория</a>
+        <a href="practice.html" class="active">Практика</a>
+        <a href="tests.html">Тесты</a>
+        <a href="control.html">Контрольные</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="games.html">Игры</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" role="main" aria-label="Генератор задач по алгебраическим дробям">
+    <h2>Генератор задач по алгебраическим дробям</h2>
+    <p>Выберите уровень сложности и попробуйте решить примеры:</p>
+
+    <label for="level-select">Уровень:</label>
+    <select id="level-select" aria-label="Выбор уровня сложности">
+      <option value="easy" selected>Легкий</option>
+      <option value="medium">Средний</option>
+      <option value="hard">Сложный</option>
+    </select>
+
+    <ol id="problems-list" aria-live="polite" aria-relevant="additions"></ol>
+
+    <button id="check-btn" aria-label="Проверить ответы">Проверить ответы</button>
+
+    <div id="result" aria-live="polite" role="alert"></div>
+  </main>
+
+  <script src="js/practice.js"></script>
+</body>
+</html>

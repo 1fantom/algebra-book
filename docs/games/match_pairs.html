@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Соедини пары</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    /* Дополнительное оформление для игры */
+
+    body {
+      background-color: var(--color-bg-light, #f1f7ff);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 2rem 0;
+    }
+
+    .game-window {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 3rem;
+      background-color: #ffffff;
+      border-radius: var(--radius, 12px);
+      box-shadow: var(--shadow-light, 0 10px 25px rgba(0, 0, 0, 0.15));
+      border: 1px solid #dbe9f6;
+    }
+
+    h1 {
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--color-text-dark, #022859);
+      font-size: 2rem;
+    }
+
+    .pairs {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .column {
+      background: var(--color-bg-alt, #f9fcff);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius, 10px);
+      flex: 1;
+      box-shadow: var(--shadow-light, 0 4px 12px rgba(0, 0, 0, 0.07));
+      border: 1px solid #aaccee;
+      min-height: 300px;
+    }
+
+    .item {
+      padding: .7rem 1rem;
+      margin: .5rem 0;
+      background: #e6f0ff;
+      border: 1px solid var(--color-primary, #0077b6);
+      border-radius: 6px;
+      cursor: grab;
+      transition: background 0.3s, transform 0.2s;
+      user-select: none;
+    }
+
+    .item:hover {
+      background: #d0e9ff;
+      transform: scale(1.02);
+    }
+
+    .item.correct {
+      background-color: #c8e6c9;
+      border-color: #388e3c;
+    }
+
+    .item.wrong {
+      background-color: #ffcdd2;
+      border-color: #d32f2f;
+    }
+
+    .text-center {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      background-color: var(--color-primary, #0077b6);
+      color: #fff;
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: var(--radius, 8px);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #023e8a;
+    }
+
+    .exit-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.8rem;
+      font-size: 1rem;
+      text-decoration: none;
+      color: #fff;
+      background-color: #6c757d;
+      border-radius: var(--radius, 8px);
+      transition: background-color 0.3s;
+    }
+
+    .exit-btn:hover {
+      background-color: #495057;
+    }
+  </style>
+</head>
+<body>
+  <div w3-include-html="../header.html"></div>
+
+  <main class="container">
+    <div class="game-window">
+      <h1>Игра: Соедини пары</h1>
+
+      <div class="pairs">
+        <div class="column" id="left"></div>
+        <div class="column" id="right"></div>
+      </div>
+
+      <div class="text-center">
+        <button id="mp-check" class="btn">Проверить</button>
+        <button id="mp-reset" class="btn" style="margin-left: 1rem;">Очистить соединения</button>
+      </div>
+
+      <div id="mp-feedback" class="text-center"></div>
+
+      <div class="text-center">
+        <a href="../games.html" class="exit-btn">← Вернуться к играм</a>
+      </div>
+    </div>
+  </main>
+
+  <div w3-include-html="../footer.html"></div>
+
+  <script src="../js/include.js"></script>
+  <script src="../js/match_pairs.js"></script>
+</body>
+</html>

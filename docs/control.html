@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Тесты — Учебник по алгебраическим дробям</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Подключаем MathJax для красивого вывода формул -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+  <style>
+    h1 { 
+      margin-bottom: 1.5rem; 
+      line-height: 1.3;
+    }
+    ol {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      color: #222;
+    }
+    p {
+      margin-bottom: 1.6rem;
+      line-height: 2;
+      font-size: 1.1rem;
+      color: #222;
+    }
+    .block-formula {
+      background-color: #e6f0ff;
+      border: 1px solid #aaccee;
+      border-radius: 6px;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      font-size: 1.3rem;
+    }
+    .question-card {
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 1rem 1.5rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow-light);
+    }
+    .question-card p {
+      margin-bottom: 0.5rem;
+    }
+    nav.main-nav a.active {
+      font-weight: 600;
+      color: #0077b6;
+      text-decoration: underline;
+    }
+    /* Добавляем отступ вправо для списка вопросов */
+    #control-list {
+      padding-left: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <h1 class="site-title">Учебник по алгебраическим дробям</h1>
+      <nav class="main-nav" aria-label="Меню">
+        <a href="index.html">Главная</a>
+        <a href="theory.html">Теория</a>
+        <a href="practice.html">Практика</a>
+        <a href="tests.html" >Тесты</a>
+        <a href="control.html" class="active">Контрольные</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="games.html">Игры</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content">
+    <h2>Контрольные вопросы</h2>
+    <button onclick="genControlQuestions()">Обновить вопросы</button>
+    <ol id="control-list"></ol>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container text-center">© 2025 Учебник по алгебраическим дробям</div>
+  </footer>
+
+  <script src="js/include.js"></script>
+  <script src="js/control.js"></script>
+</body>
+</html>
