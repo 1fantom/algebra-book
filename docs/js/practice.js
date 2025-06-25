@@ -10,33 +10,36 @@ document.addEventListener("DOMContentLoaded", () => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  function generateFraction() {
-    const numerator = getRandomInt(1, 9);
+  function generateFraction(allowNegative = false) {
+    const numerator = getRandomInt(1, 9) * (allowNegative && Math.random() < 0.5 ? -1 : 1);
     const denominator = getRandomInt(1, 9);
     return `\\frac{${numerator}}{${denominator}}`;
   }
 
   function generateProblem(level) {
     if (level === "easy") {
-      // сумма двух простых дробей
       const frac1 = generateFraction();
       const frac2 = generateFraction();
-      const problem = `\\( \\left(${frac1}\\right) + \\left(${frac2}\\right) \\)`;
-      // ответ (для примера — просто число 1, можно улучшить)
-      const answer = "1";
-      return { problem, answer };
-    } else if (level === "medium") {
-      // сумма дробей с разными знаменателями
-      const frac1 = generateFraction();
-      const frac2 = generateFraction();
-      const problem = `\\( \\frac{${getRandomInt(1,5)}}{${getRandomInt(2,9)}} + \\frac{${getRandomInt(1,5)}}{${getRandomInt(2,9)}} \\)`;
+      const problem = `\\( ${frac1} + ${frac2} \\)`;
       const answer = "зависит от вычисления";
       return { problem, answer };
+
+    } else if (level === "medium") {
+      const numerator1 = getRandomInt(1, 5);
+      const denominator1 = getRandomInt(2, 9);
+      const numerator2 = getRandomInt(1, 5);
+      const denominator2 = getRandomInt(2, 9);
+      const problem = `\\( \\frac{${numerator1}}{${denominator1}} - \\frac{${numerator2}}{${denominator2}} \\)`;
+      const answer = "зависит от вычисления";
+      return { problem, answer };
+
     } else {
-      // сложные дроби с умножением
-      const frac1 = generateFraction();
-      const frac2 = generateFraction();
-      const problem = `\\( \\left(${frac1}\\right) \\times \\left(${frac2}\\right) \\)`;
+      const frac1 = generateFraction(true);
+      const frac2 = generateFraction(true);
+      const frac3 = generateFraction(true);
+      const operation1 = Math.random() < 0.5 ? "+" : "-";
+      const operation2 = Math.random() < 0.5 ? "×" : "÷";
+      const problem = `\\( \\left(${frac1}\\right) ${operation1} \\left(${frac2}\\right) ${operation2} \\left(${frac3}\\right) \\)`;
       const answer = "зависит от вычисления";
       return { problem, answer };
     }
@@ -55,12 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
       li.innerHTML = `
         <div class="question-card">
           <p>Вычислите: ${problem}</p>
-          <input type="text" class="answer" aria-label="Ответ на пример ${i+1}" />
+          <input type="text" class="answer" aria-label="Ответ на пример ${i + 1}" />
         </div>`;
       problemsList.appendChild(li);
     }
 
-    // ВАЖНО! Сообщаем MathJax обновить отображение формул
     if (window.MathJax) {
       MathJax.typesetPromise();
     }
@@ -74,13 +76,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const userAnswer = input.value.trim();
       const correctAnswer = currentProblems[i].answer;
 
-      // Простая проверка — только для easy уровня сравниваем с "1"
-      if (currentProblems[i].answer === "1") {
+      if (correctAnswer === "1") {
         if (userAnswer === "1") {
           correctCount++;
         }
-      } else {
-        // Для сложных уровней пока просто считаем как не проверенные
       }
     });
 
@@ -96,6 +95,5 @@ document.addEventListener("DOMContentLoaded", () => {
     checkAnswers();
   });
 
-  // Рендерим задачи при загрузке страницы
   renderProblems();
 });
