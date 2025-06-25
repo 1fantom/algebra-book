@@ -4,23 +4,22 @@
   <meta charset="UTF-8" />
   <title>Тесты — Учебник по алгебраическим дробям</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <!-- Подключаем внешний CSS -->
+
+  <!-- Внешний CSS -->
   <link rel="stylesheet" href="css/styles.css" />
 
-  <!-- Подключаем MathJax для красивого вывода формул -->
+  <!-- MathJax для отображения формул -->
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  <!-- Math.js для вычислений -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
 
   <style>
-    /* Дополнительные локальные стили — их можно менять */
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      /* фон и цвет лучше брать из styles.css, если он там есть */
       line-height: 1.6;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
+      background: #f0f4f8;
     }
-
     main.container {
       max-width: 720px;
       margin: 2.5rem auto 3rem;
@@ -33,102 +32,28 @@
     main.container:hover {
       box-shadow: 0 12px 36px rgba(0, 115, 182, 0.25);
     }
-
-    h2 {
-      font-weight: 700;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #023e7d;
-      letter-spacing: 0.02em;
-    }
-
-    p {
-      font-size: 1.125rem;
-      margin-bottom: 1.8rem;
-      color: #333;
-    }
-
-    label {
-      font-weight: 600;
-      font-size: 1rem;
-      color: #0077b6;
-      display: inline-block;
-      margin-bottom: 0.6rem;
-    }
-
-    select#level-select {
-      display: block;
-      width: 100%;
-      max-width: 200px;
-      padding: 0.5rem 0.75rem;
-      font-size: 1rem;
-      border: 2px solid #90caf9;
-      border-radius: 8px;
-      background-color: #e3f2fd;
-      color: #023e7d;
-      cursor: pointer;
-      transition: border-color 0.3s ease;
-    }
-    select#level-select:focus {
-      outline: none;
-      border-color: #0077b6;
-      box-shadow: 0 0 8px #90caf9;
-    }
-
-    ol#problems-list {
-      margin-top: 1.5rem;
-      padding-left: 1.3rem;
-      font-size: 1.1rem;
-      color: #222;
+    h2 { font-size: 2rem; color: #023e7d; margin-bottom: 1rem; }
+    p { font-size: 1.125rem; margin-bottom: 1.8rem; color: #333; }
+    label { font-weight: 600; color: #0077b6; }
+    select, input[type="number"] {
+      padding: .5rem; border: 2px solid #90caf9; border-radius: 8px;
+      background: #e3f2fd; color: #023e7d; margin-bottom: 1rem;
     }
     ol#problems-list li {
-      margin-bottom: 1.2rem;
-      padding: 0.6rem 0.8rem;
-      background: #e6f0ff;
-      border-radius: 8px;
-      box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
-      transition: background-color 0.3s ease;
+      background: #e6f0ff; border-radius: 8px;
+      padding: .8rem; margin-bottom: 1.2rem;
     }
-    ol#problems-list li:hover {
-      background-color: #d0e4ff;
-    }
-
     button#check-btn {
-      margin-top: 2rem;
-      width: 100%;
-      max-width: 280px;
-      padding: 0.75rem 1.5rem;
-      font-size: 1.15rem;
-      font-weight: 700;
-      background-color: #0077b6;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 6px 12px rgba(0, 119, 182, 0.3);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
+      padding: .75rem 1.5rem; background: #0077b6; color: #fff;
+      border-radius: 10px; font-weight: 700;
+      transition: .3s; margin-top: 1rem;
     }
-    button#check-btn:hover,
-    button#check-btn:focus {
-      background-color: #005f87;
-      box-shadow: 0 8px 18px rgba(0, 95, 135, 0.5);
-      outline: none;
-    }
-
-    #result {
-      margin-top: 1.5rem;
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: #008000;
-      min-height: 2rem;
-      text-align: center;
-      user-select: none;
-      letter-spacing: 0.02em;
-    }
+    #result { margin-top: 1.5rem; font-size: 1.2rem; color: #008000; }
+    .correct { color: #008000; }
+    .wrong { color: #b00020; }
+    .steps { font-size: .9rem; margin-top: .5rem; color: #555; }
   </style>
 </head>
-
 <body>
   <header class="site-header">
     <div class="header-inner container">
@@ -147,22 +72,104 @@
 
   <main class="container" role="main" aria-label="Генератор задач по алгебраическим дробям">
     <h2>Генератор задач по алгебраическим дробям</h2>
-    <p>Выберите уровень сложности и попробуйте решить примеры:</p>
+    <p>Выберите уровень и количество задач, решите и проверьте себя:</p>
 
     <label for="level-select">Уровень:</label>
-    <select id="level-select" aria-label="Выбор уровня сложности">
+    <select id="level-select" aria-label="Уровень">
       <option value="easy" selected>Легкий</option>
       <option value="medium">Средний</option>
       <option value="hard">Сложный</option>
     </select>
 
+    <label for="count-input">Количество задач:</label>
+    <input type="number" id="count-input" value="5" min="1" max="10" />
+
     <ol id="problems-list" aria-live="polite" aria-relevant="additions"></ol>
 
     <button id="check-btn" aria-label="Проверить ответы">Проверить ответы</button>
-
     <div id="result" aria-live="polite" role="alert"></div>
   </main>
 
-  <script src="js/practice.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const levelSelect = document.getElementById("level-select");
+      const countInput = document.getElementById("count-input");
+      const problemsList = document.getElementById("problems-list");
+      const checkBtn = document.getElementById("check-btn");
+      const resultDiv = document.getElementById("result");
+      let currentProblems = [];
+
+      const rnd = (min, max) => Math.floor(Math.random()*(max-min+1))+min;
+
+      function genFrac(negAllowed=false) {
+        const num = rnd(1,9)*(negAllowed && Math.random()<0.5? -1:1);
+        const den = rnd(1,9);
+        return `(${num}/${den})`;
+      }
+
+      function generateProblem(level) {
+        let expr, steps;
+        if(level==="easy") {
+          expr = `${genFrac()} + ${genFrac()}`;
+        } else if(level==="medium") {
+          expr = `${genFrac()} - ${genFrac()}`;
+        } else {
+          const op1 = Math.random()<.5? "*" : "/";
+          expr = `${genFrac(true)} ${op1} ${genFrac(true)}`;
+        }
+        // Вычисляем через math.js
+        const value = math.simplify(expr).toString();
+        // Шаги решения (упрощённо)
+        steps = `Упростили \\(${expr}\\) = \\(${value}\\)`;
+        return { expr, value, steps };
+      }
+
+      function render() {
+        problemsList.innerHTML="";
+        currentProblems=[];
+        const lvl = levelSelect.value;
+        const cnt = +countInput.value;
+        for(let i=0; i<cnt; i++){
+          const p = generateProblem(lvl);
+          currentProblems.push(p);
+          const li = document.createElement("li");
+          li.innerHTML = `
+            <p>Вычислите: \\(${p.expr}\\)</p>
+            <input type="text" class="answer" aria-label="Ответ ${i+1}" />
+            <div class="steps" id="steps-${i}" hidden></div>
+          `;
+          problemsList.appendChild(li);
+        }
+        MathJax.typesetPromise();
+        resultDiv.textContent="";
+      }
+
+      function check() {
+        let correct=0;
+        document.querySelectorAll(".answer").forEach((inp,i)=>{
+          const ua = inp.value.trim();
+          const ok = currentProblems[i].value;
+          const stepsDiv = document.getElementById(`steps-${i}`);
+          if(ua===ok){
+            correct++;
+            inp.classList.add("correct");
+            inp.classList.remove("wrong");
+          } else {
+            inp.classList.add("wrong");
+            inp.classList.remove("correct");
+            stepsDiv.hidden = false;
+            stepsDiv.innerHTML = currentProblems[i].steps;
+          }
+        });
+        resultDiv.textContent = `Правильных: ${correct} из ${currentProblems.length}`;
+      }
+
+      levelSelect.addEventListener("change", render);
+      countInput.addEventListener("input", render);
+      checkBtn.addEventListener("click", check);
+
+      render();
+    });
+  </script>
 </body>
 </html>
